@@ -1,0 +1,23 @@
+body{
+    margin: 0%;
+}
+
+header{
+    background-color: #E38007;
+    padding: 20px;
+}
+
+nav{
+    display: flex;
+    list-style: none;
+}
+
+li{
+    margin: 10px;
+    margin-right: 0px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
