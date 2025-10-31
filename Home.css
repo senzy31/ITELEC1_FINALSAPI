@@ -1,7 +1,23 @@
 body{
-    background-color: rgb(255, 255, 255);
+    margin: 0%;
 }
 
 header{
-    background-color: rgb(223, 171, 0);
+    background-color: #E38007;
+    padding: 20px;
+}
+
+nav{
+    display: flex;
+    list-style: none;
+}
+
+li{
+    margin: 10px;
+    margin-right: 0px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
