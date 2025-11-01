@@ -1,11 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JMA Cinema - Wicked</title>
+  <link rel="stylesheet" href="Movies.css">
+  <script src="https://kit.fontawesome.com/a2b1cbbd5c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">JMA <span>CINEMA</span></div>
+    <nav>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Movies.html" class="active">Movies</a></li>
+        <li><a href="Cinemas.html">Cinemas</a></li>
+        <li><a href="Event.html">Event & Experiences</a></li>
+        <li><a href="Loyalty.html">Loyalty</a></li>
+        <li><a href="Developer.html">Developers</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Movie Details -->
+  <section class="movie-section">
+    <div class="movie-poster">
+      <img src="imgs/wicked.jpg" alt="Wicked Movie Poster">
+    </div>
+    <div class="movie-description">
+      <p>
+        In the wondrous Land of Oz, Elphaba, a misunderstood young woman ridiculed for her green skin, 
+        and Glinda, the blonde Queen of Popularity at Shiz University, have yet to find their purpose. 
+        But it’s a series of unexpected and unlikely events, determined to make their mark in the magical 
+        community, that two ambitious students get off on the wrong foot until a pivotal encounter with 
+        the enigmatic Wizard of Oz changes their lives. Now thrust into the public eye, two fledgling witches 
+        on their path to greatness stand at a crossroads—one road leads to the light, the other to darkness.
+      </p>
+      <p class="runtime">Run Time: <strong>2 hours and 40 minutes</strong></p>
+    </div>
+  </section>
+
+  <!-- Showtimes -->
+  <section class="showtime-section">
+    <div class="showtime-header">
+      <button class="type-btn">2D</button>
+      <button class="imax-btn">IMAX</button>
+    </div>
+
+    <h2>WICKED SHOW TIMES</h2>
+    <input type="text" placeholder="Search Cinemas..." class="search-bar">
+
+    <!-- Showtime Card -->
+    <div class="showtime-card">
+      <div class="showtime-info">
+        <h3>SM City Lipa</h3>
+        <p>Wednesday, 03 JULY 2024</p>
+        <p><span class="format">2D</span> <span class="imax">IMAX</span></p>
+        <div class="time-box">8:30 PM</div>
+      </div>
+      <button class="future-btn">Show Future Dates</button>
+    </div>
+
+    <div class="showtime-card">
+      <div class="showtime-info">
+        <h3>SM City Sto.Tomas</h3>
+        <p>Thursday, 04 JULY 2024</p>
+        <p><span class="format">2D</span> <span class="imax">IMAX</span></p>
+        <div class="time-box">5:00 PM</div>
+      </div>
+      <button class="future-btn">Show Future Dates</button>
+    </div>
+
+    <div class="showtime-card">
+      <div class="showtime-info">
+        <h3>Waltermart Tanauan</h3>
+        <p>Friday, 05 JULY 2024</p>
+        <p><span class="format">2D</span> <span class="imax">IMAX</span></p>
+        <div class="time-box">4:00 PM</div>
+      </div>
+      <button class="future-btn">Show Future Dates</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">Now Showing</a>
+        <a href="#">Coming Soon</a>
+        <a href="#">Cinema Events</a>
+        <a href="#">Club</a>
+        <a href="#">Gift Ideas</a>
+        <a href="#">Ratings</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="social-icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-tiktok"></i>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <a href="#">Terms and Conditions</a>
+      <a href="#">Privacy Notice</a>
+    </div>
+  </footer>
 </body>
 </html>
