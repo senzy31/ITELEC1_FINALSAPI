@@ -1,25 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JMA CINEMA</title>
-    <link rel="stylesheet" href="Cinemas.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JMA Cinema</title>
+  <link rel="stylesheet" href="Cinemas.css">
 </head>
-
 <body>
-    <header>
-        <nav>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="Movies.html">Movies</a></li>
-            <li><a href="Cinemas.html">Cinemas</a></li>
-            <li><a href="Event.html">Event & Experiences</a></li>
-            <li><a href="Loyalty.html">Loyalty</a></li>
-            <li><a href="Developer.html">Developer</a></li>
-        </nav>
-    </header>
-    
-    <script src="Home.js"></script>
+  <header class="navbar">
+    <div class="logo">JMA <span>CINEMA</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#" class="active">Cinemas</a></li>
+        <li><a href="#">Event & Experiences</a></li>
+        <li><a href="#">Loyalty</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 🎟️ PICK TICKETS SECTION -->
+  <section class="pick-tickets">
+    <div class="pick-container">
+      <div class="pick-left">
+        <h3>Pick Tickets</h3>
+        <p>Browse and book sessions easily. Start with your choice of Movie, Cinema, Show Type or Time.</p>
+        <div class="pick-buttons">
+          <button>PICK A MOVIE</button>
+          <button>PICK A CINEMA</button>
+          <button>PICK A SHOW TYPE</button>
+          <button>PICK A TIME</button>
+        </div>
+      </div>
+      <div class="pick-right">
+        <img src="imgs/cinema.png" alt="IMAX Films to the Fullest">
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎦 CINEMAS LIST -->
+  <section class="cinemas-section">
+    <div class="search-bar">
+      <input type="text" placeholder="Search Cinemas...">
+      <a href="#" class="enquiries">General Enquiries</a>
+    </div>
+
+    <h2>ALL CINEMA LOCATIONS</h2>
+    <div class="cinema-buttons">
+      <button>Director's Club</button>
+      <button>IMAX</button>
+    </div>
+
+    <div class="cinema-list">
+      <div class="cinema-item">
+        <h3>SM City Lipa</h3>
+        <p>JP Laurel Highway,<br>Lipa City, Batangas</p>
+        <a href="#">See What's Playing</a>
+      </div>
+
+      <div class="cinema-item">
+        <h3>SM City Sto.Tomas</h3>
+        <p>20 Pan–Philippine Hwy, San Roque,<br>Santo Tomas, 4232 Batangas</p>
+        <a href="#">See What's Playing</a>
+      </div>
+
+      <div class="cinema-item">
+        <h3>Waltermart Tanauan</h3>
+        <p>JP Laurel National Highway<br>Brgy. Darasa, Tanauan, Batangas 4232</p>
+        <a href="#">See What's Playing</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <div class="left-links">
+        <p>Now Showing<br>Coming Soon</p>
+        <p>Cinemas<br>Events<br>Club</p>
+      </div>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+      </div>
+      <div class="right-links">
+        <p>Gift Ideas<br>Ratings<br>Contact Us</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="#">Terms and Conditions</a>
+      <a href="#">Privacy Notice</a>
+    </div>
+  </footer>
 </body>
 </html>

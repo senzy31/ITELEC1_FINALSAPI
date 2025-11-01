@@ -1,23 +1,254 @@
-body{
-    margin: 0%;
+/* GENERAL STYLES */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #000;
 }
 
-header{
-    background-color: #E38007;
-    padding: 20px;
+/* NAVBAR */
+.navbar {
+  background-color: #E38007;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
 }
 
-nav{
-    display: flex;
-    list-style: none;
+.navbar .logo {
+  font-weight: bold;
+  font-size: 22px;
+  color: white;
 }
 
-li{
-    margin: 10px;
-    margin-right: 0px;
+.navbar .logo span {
+  font-weight: normal;
 }
 
-a{
-    text-decoration: none;
-    color: white;
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* 🎟️ PICK TICKETS SECTION */
+.pick-tickets {
+  background-color: #F99C2A;
+  padding: 30px 40px;
+  margin: 40px 50px;
+  border-radius: 5px;
+}
+
+.pick-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.pick-left {
+  flex: 1;
+  color: white;
+}
+
+.pick-left h3 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.pick-left p {
+  font-size: 0.95em;
+  margin: 10px 0 20px;
+  max-width: 280px;
+  line-height: 1.4;
+}
+
+.pick-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px; 
+  justify-content: start;
+}
+
+.pick-buttons button {
+  background: none;
+  color: white;
+  border: 2px solid white;
+  padding: 6px 16px;       /* smaller padding (was 10px 20px) */
+  font-weight: bold;
+  font-size: 0.9rem;       /* smaller font */
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px;
+  width: 140px;            /* fixed smaller width */
+  text-align: center;
+}
+
+.pick-buttons button:hover {
+  background: white;
+  color: #f7931e;
+}
+
+.pick-right img {
+  width: 850px;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* CINEMA SECTION */
+.cinemas-section {
+  padding: 30px 50px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.search-bar input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar .enquiries {
+  color: #555;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.cinema-buttons {
+  margin: 15px 0;
+}
+
+.cinema-buttons button {
+  background: #f6931f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cinema-list {
+  border-top: 1px solid #999;
+}
+
+.cinema-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #999;
+  text-align: justify;
+  width: 100%;
+  max-width: 900px; /* longer line */
+  margin: 0 auto;
+}
+
+.cinema-item h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.cinema-item a {
+  color: #1e4ad7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+  background: #f6931f;
+  color: white;
+  padding: 30px 50px;
+  margin-top: 40px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-links p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.social-icons img {
+  width: 24px;
+  margin: 0 8px;
+  filter: invert(1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-bottom a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pick-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cinema-item {
+    text-align: center;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-icons {
+    margin: 15px 0;
+  }
 }
