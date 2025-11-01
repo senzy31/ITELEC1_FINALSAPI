@@ -1,0 +1,215 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #f18f01;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 60px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.logo span {
+  font-weight: normal;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95em;
+}
+
+.navbar a.active,
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Movie Section */
+.movie-section {
+  padding: 40px 80px;
+}
+
+.movie-poster img {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin: 0 auto 20px;
+  border: 2px solid #ddd;
+}
+
+.movie-description {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 0.95em;
+  line-height: 1.5;n 
+  color: #333;
+}
+
+.movie-description .runtime {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Showtime Section */
+.showtime-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.showtime-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.type-btn,
+.imax-btn {
+  border: 1px solid #f18f01;
+  background: transparent;
+  color: #f18f01;
+  font-weight: bold;
+  padding: 6px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.imax-btn {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.showtime-section h2 {
+  margin: 20px 0 10px;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.search-bar {
+  display: block;
+  width: 250px;
+  padding: 8px;
+  border: 1px solid #000;
+  margin-bottom: 25px;
+}
+
+/* Showtime Cards */
+.showtime-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.showtime-info h3 {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.showtime-info p {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.format {
+  font-weight: bold;
+  color: #000;
+}
+
+.imax {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.time-box {
+  display: inline-block;
+  background: #f18f01;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.future-btn {
+  border: none;
+  background: transparent;
+  color: #333;
+  font-size: 0.85em;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #f18f01;
+  color: white;
+  padding: 30px 70px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 0.9em;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-icons i {
+  font-size: 1.3em;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 0.85em;
+}
+
+.footer-bottom a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
