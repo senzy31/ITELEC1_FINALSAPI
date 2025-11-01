@@ -8,21 +8,22 @@
 
 /* Navbar */
 .navbar {
-  background-color: #f18f01;
+  background-color: #E38007;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 60px;
+  padding: 30px 50px;
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 1.3em;
+  font-weight: bolder;
+  font-size: 24px;
 }
 
 .logo span {
-  font-weight: normal;
+  font-weight: lighter;
+  font-size: 22px;
 }
 
 .navbar ul {
@@ -34,12 +35,12 @@
 .navbar a {
   color: white;
   text-decoration: none;
-  font-size: 0.95em;
+  font-weight: 500;
 }
 
 .navbar a.active,
 .navbar a:hover {
-  text-decoration: underline;
+  border-bottom: 2px solid white;
 }
 
 /* Movie Section */
@@ -52,7 +53,18 @@
   max-width: 900px;
   display: block;
   margin: 0 auto 20px;
-  border: 2px solid #ddd;
+  object-fit: contain; /* ✅ ensures the whole image fits, no cropping */
+  height: auto; /* ✅ keeps correct proportions */
+  max-height: 500px; /* ✅ limits height if image is tall */
+  border-radius: 10px; /* optional: smoother corners */
+}
+
+/* ✅ OPTIONAL: Make images responsive for smaller screens */
+@media (max-width: 768px) {
+  .movie-poster img {
+    max-width: 100%;
+    max-height: 100px;
+  }
 }
 
 .movie-description {

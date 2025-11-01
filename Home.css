@@ -2,11 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "SF pro", sans-serif;
+  font-family: "SF Pro", sans-serif;
 }
 
 body {
   background: #fff;
+  color: #222;
 }
 
 /* Header */
@@ -15,19 +16,21 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #E38007;
-  padding: 30px 50px;
+  padding: 25px 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bolder;
+  font-size: 26px;
+  font-weight: 900;
   color: white;
+  letter-spacing: 1px;
 }
 
 .logo span {
-  font-size: 22px;
-  color: #ffffff;
-  font-weight: lighter;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 400;
 }
 
 nav ul {
@@ -40,7 +43,9 @@ nav ul li a {
   text-decoration: none;
   color: white;
   font-weight: 500;
+  padding-bottom: 3px;
 }
+
 nav ul li a.active,
 nav ul li a:hover {
   border-bottom: 2px solid white;
@@ -49,23 +54,53 @@ nav ul li a:hover {
 /* Tabs */
 .tabs {
   text-align: center;
-  padding: 30px 0 10px;
+  padding: 40px 0 15px;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
 }
 
 .tabs span {
-  margin: 0 20px;
+  position: relative;
   font-weight: bold;
-  color: #888;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding-bottom: 6px;
+}
+
+.tabs span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #E38007;
+  transition: width 0.3s ease;
+}
+
+.tabs span:hover {
+  color: #E38007;
+  text-shadow: 0 0 8px rgba(227, 128, 7, 0.6);
+}
+
+.tabs span:hover::after {
+  width: 100%;
 }
 
 .tabs .active {
   color: #E38007;
-  border-bottom: 2px solid #E38007;
-  padding-bottom: 5px;
+  text-shadow: 0 0 8px rgba(227, 128, 7, 0.5);
 }
 
-/* Movies Section */
+.tabs .active::after {
+  width: 100%;
+}
+
+/* Movies Container */
 .movies-container {
   display: flex;
   flex-wrap: wrap;
@@ -75,52 +110,58 @@ nav ul li a:hover {
 }
 
 .movie-card {
-  background: #f9f9f9;
+  background: #fdfdfd;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   width: 220px;
   padding: 15px;
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .movie-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .movie-card img {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .movie-card h3 {
-  margin: 12px 0 8px;
-  font-size: 18px;
+  margin: 12px 0 5px;
+  font-size: 17px;
+  color: #111;
 }
 
-.movie-card p {
+.movie-card .movie-date {
   font-size: 14px;
   color: #555;
+  margin-bottom: 10px;
 }
 
 .movie-card button {
   background-color: #e50914;
   color: #fff;
   border: none;
-  padding: 10px 15px;
-  margin-top: 10px;
-  border-radius: 5px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .movie-card button:hover {
   background-color: #c40812;
+  transform: translateY(-2px);
 }
 
-/* View All */
+/* Reload Button */
 .view-all {
   text-align: center;
-  margin: 40px 0;
+  margin: 40px 0 60px;
 }
 
 .view-all button {
@@ -128,20 +169,24 @@ nav ul li a:hover {
   color: white;
   border: none;
   padding: 12px 25px;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
 }
 
 .view-all button:hover {
-  background-color: #F99C2A;
+  background-color: #f99c2a;
+  box-shadow: 0 0 10px rgba(243, 158, 50, 0.7);
+  transform: scale(1.05);
 }
 
 /* Footer */
 footer {
   background-color: #f28c00;
   text-align: center;
-  padding: 30px 20px;
+  padding: 35px 20px;
   color: white;
 }
 
@@ -150,15 +195,17 @@ footer {
   justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .footer-links a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
   text-decoration: underline;
+  color: #fff3d4;
 }

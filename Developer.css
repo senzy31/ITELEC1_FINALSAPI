@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SF Pro", sans-serif;
+}
+
+body {
+  background-color: #fff;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E38007;
+  padding: 30px 50px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bolder;
+  color: white;
+}
+
+.logo span {
+  color: #ffffff;
+  font-weight: lighter;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  border-bottom: 2px solid white;
+}
+
+.about-description {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  color: #E38007;
+  line-height: 1.6;
+}
+
+/* Developer Section */
+.developers-section {
+  padding: 60px 80px;
+  text-align: center;
+}
+
+.developers-section h1 {
+  font-size: 36px;
+  color: #E38007;
+  margin-bottom: 20px;
+}
+
+.developer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+}
+
+.developer-card {
+  background: #ffffff;
+  border: 3px solid #E38007;
+  border-radius: 15px;
+  width: 280px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.developer-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.developer-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #E38007;
+  margin-bottom: 15px;
+}
+
+.developer-card h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.developer-card p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #000000;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #b86000;
+  transform: scale(1.2);
+}
+
+/* Footer */
+footer {
+  background-color: #f28c00;
+  text-align: center;
+  padding: 30px 20px;
+  color: white;
+  margin-top: 60px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}

@@ -1,9 +1,9 @@
 /* GENERAL STYLES */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  font-family: "SF pro", sans-serif;
   background: #fff;
-  color: #000;
 }
 
 /* NAVBAR */

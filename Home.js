@@ -1,80 +1,91 @@
-const API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMjA5YTIzMzJhNmNhMDBiZTlhZmU3ZDE1OTFlOTQ3ZCIsIm5iZiI6MTc2MTU0NzI0MS44MjcwMDAxLCJzdWIiOiI2OGZmMTNlOTE1NjE4ZjAzOThkYTAyMjAiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.7BrLe9Tt81ZEIg2T0zV8elagGYC78noCauoVOJIMJHE";
-
-const GENRES = {
-  romance: "10749",
-  adventure: "12",
-  drama: "18",
-  comedy: "35",
-  popular: "28"
-};
+const API_KEY = "6a720d4e966a2d2dbb5fff4a1f8fd092";
 
 // === FETCH MOVIES ===
-async function fetchMovies(genreId = GENRES.popular) {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=false&sort_by=popularity.desc&with_genres=${genreId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    }
-  );
-
+async function fetchMovies(category = "now_playing") {
   const container = document.getElementById("movies-container");
+  container.innerHTML = "<p>Loading movies...</p>";
 
-  if (!res.ok) {
-    container.innerHTML = `<p>⚠️ OOOPSS SORRY PLEASE TRY AGAIN :( </p>`;
-    return;
+  let url = "";
+
+  if (category === "now_playing") {
+    // ✅ NOW SHOWING
+    url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1&region=PH`;
+  } else if (category === "upcoming") {
+    // ✅ COMING SOON — only from NOVEMBER 2025 onwards
+    url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1&region=PH`;
   }
 
-  const data = await res.json();
-  const list = data.results.slice(0, 15);
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Failed to fetch movies");
+    const data = await res.json();
 
-  // ==== DISPLAY POSTERS ====
-  container.innerHTML = list
-    .map(
-      (movie) => `
+    let movies = data.results;
+
+    // ✅ Filter for NOVEMBER 2025 onwards if COMING SOON
+    if (category === "upcoming") {
+      const cutoffDate = new Date("2025-11-01");
+      movies = movies.filter((m) => new Date(m.release_date) >= cutoffDate);
+    }
+
+    // Limit to top 10
+    const list = movies.slice(0, 30);
+
+    // ✅ Display movies
+    if (list.length === 0) {
+      container.innerHTML = `<p>🚫 No upcoming movies found for November 2025 or later.</p>`;
+      return;
+    }
+
+    container.innerHTML = list
+      .map(
+        (movie) => `
       <div class="movie-card">
         <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" alt="${movie.title}">
         <h3>${movie.title}</h3>
-        <p>${movie.release_date ? movie.release_date.substring(0, 4) : "No Date"}</p>
-        <button>BUY TICKETS</button>
+        <p class="movie-date">🎬 ${movie.release_date}</p>
+        <button onclick="goToMovie(${movie.id})">BUY TICKETS</button>
       </div>
     `
-    )
-    .join("");
+      )
+      .join("");
+  } catch (err) {
+    console.error(err);
+    container.innerHTML = `<p>⚠️ OOPS! Failed to load movies. Please try again later.</p>`;
+  }
 }
 
-// === TAB HANDLER ===
+// === REDIRECT TO MOVIE PAGE ===
+function goToMovie(movieId) {
+  window.location.href = `Movies.html?id=${movieId}`;
+}
+
+// === SETUP TABS ===
 function setupTabs() {
   const tabsContainer = document.querySelector(".tabs");
-  tabsContainer.innerHTML = Object.keys(GENRES)
-    .map(
-      (key, index) => `
-        <span class="${index === 0 ? "active" : ""}" data-genre="${GENRES[key]}">
-          ${key.toUpperCase()}
-        </span>
-      `
-    )
-    .join("");
+  tabsContainer.innerHTML = `
+    <span class="active" data-category="now_playing">NOW SHOWING</span>
+    <span data-category="upcoming">COMING SOON</span>
+  `;
 
-  // Add click listeners
   document.querySelectorAll(".tabs span").forEach((tab) => {
     tab.addEventListener("click", () => {
-      // Remove active class
-      document.querySelectorAll(".tabs span").forEach((t) => t.classList.remove("active"));
+      document.querySelectorAll(".tabs span").forEach((t) =>
+        t.classList.remove("active")
+      );
       tab.classList.add("active");
-
-      // Fetch by genre
-      fetchMovies(tab.dataset.genre);
+      fetchMovies(tab.dataset.category);
     });
   });
 }
 
 // === ON PAGE LOAD ===
 document.addEventListener("DOMContentLoaded", () => {
-  setupTabs();          // create genre tabs
-  fetchMovies();        // load default (popular)
-  document
-    .getElementById("refresh-btn")
-    .addEventListener("click", () => fetchMovies());
+  setupTabs(); // Create the two tabs
+  fetchMovies(); // Load Now Showing by default
+
+  document.getElementById("refresh-btn").addEventListener("click", () => {
+    const activeTab = document.querySelector(".tabs .active");
+    fetchMovies(activeTab.dataset.category);
+  });
 });

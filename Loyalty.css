@@ -3,26 +3,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "SF pro", sans-serif;
 }
 
 /* Navbar */
 .navbar {
-  background-color: #f18f01;
+  background-color: #E38007;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 60px;
+  padding: 30px 50px;
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 1.3em;
+  font-weight: bolder;
+  font-size: 24px;
 }
 
 .logo span {
-  font-weight: normal;
+  font-weight: lighter;
+  font-size: 22px;
 }
 
 .navbar ul {
@@ -34,13 +35,12 @@
 .navbar a {
   color: white;
   text-decoration: none;
-  font-size: 0.95em;
   font-weight: 500;
 }
 
 .navbar a.active,
 .navbar a:hover {
-  text-decoration: underline;
+  border-bottom: 2px solid white;
 }
 
 /* Pick Tickets Section */
@@ -55,8 +55,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #f18f01;
-  border: 2px solid #e07b00;
+  background-color: #E38007;
+  border: 2px solid #E38007;
   border-radius: 5px;
   padding: 20px 30px;
   width: 90%;

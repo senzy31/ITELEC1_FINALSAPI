@@ -41,11 +41,10 @@ nav a {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  transition: 0.3s;
 }
 
 nav a:hover, nav a.active {
-  text-decoration: underline;
+  border-bottom: 2px solid white;
 }
 
 /* Hero Section */
