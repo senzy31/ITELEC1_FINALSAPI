@@ -16,13 +16,14 @@ body {
 }
 
 .navbar .logo {
-  font-weight: bold;
-  font-size: 22px;
+  font-weight: bolder;
+  font-size: 24px;
   color: white;
 }
 
 .navbar .logo span {
-  font-weight: normal;
+  font-weight: lighter;
+  font-size: 22px;
 }
 
 .navbar ul {
@@ -49,7 +50,7 @@ body {
 
 /* 🎟️ PICK TICKETS SECTION */
 .pick-tickets {
-  background-color: #F99C2A;
+  background-color: #E38007;
   padding: 30px 40px;
   margin: 40px 50px;
   border-radius: 5px;

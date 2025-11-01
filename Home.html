@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JMA CINEMA</title>
-    <link rel="stylesheet" href="Home.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JMA Cinema</title>
+  <link rel="stylesheet" href="Home.css" />
 </head>
-
 <body>
-    <header>
-        <nav>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="Movies.html">Movies</a></li>
-            <li><a href="Cinemas.html">Cinemas</a></li>
-            <li><a href="Event.html">Event & Experiences</a></li>
-            <li><a href="Loyalty.html">Loyalty</a></li>
-            <li><a href="Developer.html">Developer</a></li>
-        </nav>
-    </header>
-    
-    <script src="Home.js"></script>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">JMA <span>CINEMA</span></div>
+    <nav>
+      <ul>
+        <li><a href="Home.html" class="active">Home</a></li>
+        <li><a href="">Movies</a></li>
+        <li><a href="Cinemas.html">Cinemas</a></li>
+        <li><a href="Event.html">Events & Experiences</a></li>
+        <li><a href="#">Loyalty</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="tabs">
+      <span class="active">NOW SHOWING</span>
+    </div>
+
+    <div class="movies-container" id="movies-container">
+      <p>Loading movie...</p>
+    </div>
+
+    <div class="view-all">
+      <button id="refresh-btn">Reload</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Now Showing</a>
+      <a href="#">Coming Soon</a>
+      <a href="#">Cinemas</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <p>© 2025 JMA Cinema | Terms and Conditions | Privacy Notice</p>
+  </footer>
+
+  <script src="Home.js"></script>
 </body>
 </html>
