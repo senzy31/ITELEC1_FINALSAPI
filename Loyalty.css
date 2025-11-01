@@ -1,0 +1,279 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #f18f01;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 60px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.logo span {
+  font-weight: normal;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.navbar a.active,
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Pick Tickets Section */
+.tickets {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.ticket-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f18f01;
+  border: 2px solid #e07b00;
+  border-radius: 5px;
+  padding: 20px 30px;
+  width: 90%;
+  max-width: 1100px;
+}
+
+.ticket-left {
+  flex: 1;
+  color: white;
+  padding-right: 20px;
+}
+
+.ticket-left h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.ticket-left p {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+.ticket-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.ticket-buttons button {
+  background-color: transparent;
+  border: 1.5px solid white;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ticket-buttons button:hover {
+  background-color: white;
+  color: #f18f01;
+}
+
+/* Right-side image */
+.ticket-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.ticket-right img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 3px;
+  border: 2px solid #e07b00;
+}
+
+/* Loyalty Banner */
+.loyalty-banner {
+  background: linear-gradient(to right, #f7c000, #f00000);
+  padding: 40px 70px;
+  color: white;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner-content .card {
+  background: #c81e1e;
+  padding: 20px 30px;
+  border-radius: 8px;
+  transform: rotate(-10deg);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.text h2 {
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+.text p {
+  font-size: 1em;
+}
+
+/* Sign Up Section */
+.signup-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 50px 70px;
+  background-color: #fff5eb;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.signup-left h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+}
+
+.signup-btn {
+  background-color: red;
+  color: white;
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}
+
+.signup-right {
+  border: 1px solid #ccc;
+  padding: 25px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-right h4 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.signup-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.signup-right input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85em;
+}
+
+.form-links a {
+  color: #f18f01;
+  text-decoration: none;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #f18f01;
+  color: white;
+  padding: 30px 70px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 0.9em;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-icons i {
+  font-size: 1.3em;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 0.85em;
+}
+
+.footer-bottom a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
