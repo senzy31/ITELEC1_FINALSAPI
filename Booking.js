@@ -45,5 +45,26 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});
 
+  // 🆕 NEW: Load selected movie details from URL parameters
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get("title");
+  const time = params.get("time");
+  const cinema = params.get("cinema");
+  const poster = params.get("poster");
+
+  if (title && time && cinema) {
+    const movieTitleEl = document.querySelector(".movie-info h2");
+    const moviePosterEl = document.querySelector(".movie-poster");
+    const movieInfoEl = document.querySelector(".movie-info p");
+
+    if (movieTitleEl) movieTitleEl.textContent = title;
+    if (moviePosterEl && poster) moviePosterEl.src = poster;
+    if (movieInfoEl)
+      movieInfoEl.innerHTML = `Showing on ${time}<br><strong>${cinema}</strong>`;
+
+    // ✅ Update basket title too
+    const basketMovieTitle = document.querySelector(".basket-item span:first-child");
+    if (basketMovieTitle) basketMovieTitle.textContent = title;
+  }
+});

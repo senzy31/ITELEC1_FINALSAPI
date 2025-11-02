@@ -1,4 +1,4 @@
-const API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTcyMGQ0ZTk2NmEyZDJkYmI1ZmZmNGExZjhmZDA5MiIsIm5iZiI6MTc2MTk0NjQ4OC40NDEsInN1YiI6IjY5MDUyYjc4MTMyOWRlZTc2YTU5NzlmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oEe6fgvO7JO9UI_rFlzL9ahjJRiP8J4wf_rtX7ouxKU";
+const API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTcyMGQ0ZTk2NmEyZDJkYmI1ZmZmNGExZjhmZDA5MiIsInN1YiI6IjY5MDUyYjc4MTMyOWRlZTc2YTU5NzlmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oEe6fgvO7JO9UI_rFlzL9ahjJRiP8J4wf_rtX7ouxKU";
 
 async function loadMovie() {
   const params = new URLSearchParams(window.location.search);
@@ -36,7 +36,7 @@ async function loadMovie() {
       runtimeEl.textContent = `${hours}h ${minutes}m`;
     }
 
-    // Optionally: Update showtime header with movie title
+    // Update showtime header
     const showtimeHeader = document.querySelector(".showtime-section h2");
     if (showtimeHeader) showtimeHeader.textContent = `${movie.title.toUpperCase()} SHOW TIMES`;
 
@@ -45,4 +45,21 @@ async function loadMovie() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", loadMovie);
+// Load movie data
+document.addEventListener("DOMContentLoaded", () => {
+  loadMovie();
+
+  // ✅ Redirect to Booking.html when time-box clicked (UPDATED)
+  const timeBoxes = document.querySelectorAll(".time-box");
+  timeBoxes.forEach(box => {
+    box.addEventListener("click", (e) => {
+      const movieTitle = document.title.replace("JMA Cinema - ", ""); // current movie
+      const time = e.target.textContent.trim(); // selected time
+      const cinema = e.target.closest(".showtime-info").querySelector("h3").textContent.trim(); // cinema name
+      const poster = document.querySelector(".movie-poster img").src; // poster image
+
+      // Redirect with all info
+      window.location.href = `Booking.html?title=${encodeURIComponent(movieTitle)}&time=${encodeURIComponent(time)}&cinema=${encodeURIComponent(cinema)}&poster=${encodeURIComponent(poster)}`;
+    });
+  });
+});
