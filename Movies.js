@@ -2,23 +2,47 @@ const API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YTcyMGQ0ZTk2NmEyZDJkYmI1ZmZmNG
 
 async function loadMovie() {
   const params = new URLSearchParams(window.location.search);
-  const movieId = params.get("id");
+  const movieId = params.get("id"); // e.g., Movies.html?id=12345
   if (!movieId) return;
 
-  const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, {
-    headers: { Authorization: `Bearer ${API_KEY}` },
-  });
+  try {
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, {
+      headers: { Authorization: `Bearer ${API_KEY}` },
+    });
 
-  const movie = await res.json();
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
 
-  // Replace the content dynamically
-  const poster = document.querySelector(".movie-poster img");
-  const desc = document.querySelector(".movie-description p");
-  const title = document.querySelector("title");
+    const movie = await res.json();
 
-  if (poster) poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-  if (desc) desc.textContent = movie.overview || "No description available.";
-  if (title) title.textContent = `JMA Cinema - ${movie.title}`;
+    // Update poster
+    const poster = document.querySelector(".movie-poster img");
+    if (poster) poster.src = movie.poster_path
+      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+      : "imgs/default-poster.jpg";
+
+    // Update description
+    const desc = document.querySelector(".movie-description p");
+    if (desc) desc.textContent = movie.overview || "No description available.";
+
+    // Update title
+    const title = document.querySelector("title");
+    if (title) title.textContent = `JMA Cinema - ${movie.title}`;
+
+    // Update runtime
+    const runtimeEl = document.querySelector(".runtime strong");
+    if (runtimeEl && movie.runtime) {
+      const hours = Math.floor(movie.runtime / 60);
+      const minutes = movie.runtime % 60;
+      runtimeEl.textContent = `${hours}h ${minutes}m`;
+    }
+
+    // Optionally: Update showtime header with movie title
+    const showtimeHeader = document.querySelector(".showtime-section h2");
+    if (showtimeHeader) showtimeHeader.textContent = `${movie.title.toUpperCase()} SHOW TIMES`;
+
+  } catch (err) {
+    console.error("Failed to load movie:", err);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", loadMovie);
