@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking | JMA Cinema</title>
+  <link rel="stylesheet" href="Booking.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar">
+    <div class="step active">1. Select Tickets</div>
+
+  </div>
+
+  <!-- Booking Container -->
+  <div class="booking-container">
+    <!-- Left Section -->
+    <div class="ticket-section">
+      <div class="movie-header">
+        <img src="sinners.jpg" alt="Sinners Poster" class="movie-poster">
+        <div class="movie-info">
+          <h2>Sinners</h2>
+          <p>Showing on Sun 2 Nov 6:30pm</p>
+          <p><strong>SM City North Edsa - IMAX</strong></p>
+          <p class="warning">
+            *Please ensure that you are selecting seats for the correct branch of your choice
+          </p>
+        </div>
+      </div>
+
+      <h3>SELECT TICKETS</h3>
+      <p>
+        Select the number and type of tickets you wish to buy. You can buy a maximum of 8 tickets per transaction.
+        All voucher tickets will require ID when collecting or checking tickets.
+      </p>
+
+      <!-- Ticket Table -->
+      <div class="ticket-table">
+        <div class="ticket-category">
+          <div class="category-tab active">Standard</div>
+          <div class="category-tab">Voucher</div>
+        </div>
+
+        <div class="ticket-row header">
+          <span>Tickets</span>
+          <span>Cost</span>
+          <span>Qty</span>
+          <span>Subtotal</span>
+        </div>
+
+        <div class="ticket-row">
+          <span>IMAX PREMIUM SEAT*</span>
+          <span>₱1,000.00</span>
+          <div class="qty-controls">
+            <button class="minus">-</button>
+            <span class="qty">0</span>
+            <button class="plus">+</button>
+          </div>
+          <span>₱0.00</span>
+        </div>
+
+        <div class="ticket-row">
+          <span>FOR IMAX*</span>
+          <span>₱860.00</span>
+          <div class="qty-controls">
+            <button class="minus">-</button>
+            <span class="qty">0</span>
+            <button class="plus">+</button>
+          </div>
+          <span>₱0.00</span>
+        </div>
+      </div>
+
+      <div class="login-section">
+        <p>Are you a member of JMA Cinema Club? Login to earn points</p>
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+      </div>
+    </div>
+
+    <!-- Right Basket Section -->
+    <aside class="basket">
+      <h3>YOUR BASKET</h3>
+      <div class="basket-item">
+        <span>Sinners</span>
+        <span>₱0.00</span>
+      </div>
+
+      <div class="total">
+        <p>Total Cost</p>
+        <h2>₱0.00</h2>
+        <small>(Excl. booking fee)</small>
+      </div>
+    </aside>
+  </div>
+<script src="Booking.js"></script>
+</body>
+</html>

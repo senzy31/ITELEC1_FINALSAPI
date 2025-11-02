@@ -1,10 +1,8 @@
-/* Reset */
 body, h1, p, ul {
   margin: 0;
   padding: 0;
 }
 
-/* Body */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f5f5f5;
@@ -18,7 +16,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
+  padding: 30px 50px;
 }
 
 .logo {
@@ -102,7 +100,7 @@ nav a:hover, nav a.active {
   background-color: #b80000;
 }
 
-/* Footer */
+
 footer {
   background-color: #e38007;
   color: white;
