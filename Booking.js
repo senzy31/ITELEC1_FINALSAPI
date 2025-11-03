@@ -1,70 +1,95 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const ticketRows = document.querySelectorAll(".ticket-row:not(.header)");
-  const totalDisplay = document.querySelector(".total h2");
-  const basketItemPrice = document.querySelector(".basket-item span:last-child");
+document.addEventListener("DOMContentLoaded", () => {
+  // === LOAD SELECTED MOVIE ===
+  const movie = JSON.parse(localStorage.getItem("selectedMovie"));
+  if (movie) {
+    document.getElementById("movieTitle").textContent = movie.title || "--";
+    document.getElementById("moviePoster").src = movie.poster || movie.image || "";
+    document.getElementById("movieTime").textContent = movie.time
+      ? `Showtime: ${movie.time}`
+      : "Showtime: --";
+    document.getElementById("basketTitle").textContent = movie.title || "--";
+  }
 
-  ticketRows.forEach((row) => {
-    const plusBtn = row.querySelector(".plus");
-    const minusBtn = row.querySelector(".minus");
-    const qtyDisplay = row.querySelector(".qty");
-    const subtotalDisplay = row.querySelectorAll("span")[3]; // 4th span is subtotal
-    const priceText = row.querySelectorAll("span")[1].innerText.replace(/[₱,]/g, "");
+  const basketList = document.getElementById("basketList");
+  const totalCostEl = document.getElementById("totalCost");
+
+  const rows = document.querySelectorAll(".ticket-row:not(.header)");
+  const basketItems = {};
+
+  rows.forEach((row) => {
+    const ticketName = row.children[0].textContent.trim();
+    const priceText = row.children[1].textContent.replace(/[₱,]/g, "").trim();
     const price = parseFloat(priceText);
+    const plus = row.querySelector(".plus");
+    const minus = row.querySelector(".minus");
+    const qtyEl = row.querySelector(".qty");
+    const subtotalEl = row.querySelector(".subtotal");
 
     let qty = 0;
 
     function updateSubtotal() {
-      const subtotal = qty * price;
-      subtotalDisplay.textContent = `₱${subtotal.toLocaleString("en-PH", { minimumFractionDigits: 2 })}`;
+      const total = qty * price;
+      subtotalEl.textContent = `₱${total.toLocaleString("en-PH", {
+        minimumFractionDigits: 2,
+      })}`;
+
+      if (qty > 0) {
+        basketItems[ticketName] = { qty, total };
+      } else {
+        delete basketItems[ticketName];
+      }
+
+      updateBasket();
       updateTotal();
     }
 
-    function updateTotal() {
-      let total = 0;
-      ticketRows.forEach((r) => {
-        const sub = r.querySelectorAll("span")[3].innerText.replace(/[₱,]/g, "");
-        total += parseFloat(sub) || 0;
-      });
-      totalDisplay.textContent = `₱${total.toLocaleString("en-PH", { minimumFractionDigits: 2 })}`;
-      basketItemPrice.textContent = totalDisplay.textContent;
-    }
-
-    plusBtn.addEventListener("click", () => {
+    plus.addEventListener("click", () => {
       if (qty < 8) {
         qty++;
-        qtyDisplay.textContent = qty;
+        qtyEl.textContent = qty;
         updateSubtotal();
       }
     });
 
-    minusBtn.addEventListener("click", () => {
+    minus.addEventListener("click", () => {
       if (qty > 0) {
         qty--;
-        qtyDisplay.textContent = qty;
+        qtyEl.textContent = qty;
         updateSubtotal();
       }
     });
   });
 
-  // 🆕 NEW: Load selected movie details from URL parameters
-  const params = new URLSearchParams(window.location.search);
-  const title = params.get("title");
-  const time = params.get("time");
-  const cinema = params.get("cinema");
-  const poster = params.get("poster");
+  function updateBasket() {
+    basketList.innerHTML = "";
 
-  if (title && time && cinema) {
-    const movieTitleEl = document.querySelector(".movie-info h2");
-    const moviePosterEl = document.querySelector(".movie-poster");
-    const movieInfoEl = document.querySelector(".movie-info p");
+    const entries = Object.entries(basketItems);
+    if (entries.length === 0) {
+      basketList.innerHTML = `<p style="color:gray;">No tickets selected yet.</p>`;
+      return;
+    }
 
-    if (movieTitleEl) movieTitleEl.textContent = title;
-    if (moviePosterEl && poster) moviePosterEl.src = poster;
-    if (movieInfoEl)
-      movieInfoEl.innerHTML = `Showing on ${time}<br><strong>${cinema}</strong>`;
+    entries.forEach(([name, item]) => {
+      const div = document.createElement("div");
+      div.classList.add("basket-item");
+      div.style.display = "flex";
+      div.style.justifyContent = "space-between";
+      div.style.margin = "4px 0";
+      div.innerHTML = `
+        <span>${name} (x${item.qty})</span>
+        <strong>₱${item.total.toLocaleString("en-PH", {
+          minimumFractionDigits: 2,
+        })}</strong>
+      `;
+      basketList.appendChild(div);
+    });
+  }
 
-    // ✅ Update basket title too
-    const basketMovieTitle = document.querySelector(".basket-item span:first-child");
-    if (basketMovieTitle) basketMovieTitle.textContent = title;
+  function updateTotal() {
+    let total = 0;
+    Object.values(basketItems).forEach((item) => (total += item.total));
+    totalCostEl.textContent = `₱${total.toLocaleString("en-PH", {
+      minimumFractionDigits: 2,
+    })}`;
   }
 });

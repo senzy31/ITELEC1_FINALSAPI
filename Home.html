@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="Home.css" />
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <div class="logo">JMA <span>CINEMA</span></div>
     <nav>
@@ -23,14 +21,26 @@
     </nav>
   </header>
 
-  <!-- Main -->
   <main>
     <div class="tabs">
       <span class="active">NOW SHOWING</span>
     </div>
 
     <div class="movies-container" id="movies-container">
-      <p>Loading movie...</p>
+      <!-- Example Movie Cards -->
+      <div class="movie-card">
+        <img src="imgs/wicked.jpg" alt="Wicked" />
+        <h3>Wicked</h3>
+        <p>Showtime: 6:30 PM</p>
+        <button class="buy-btn" data-title="Wicked" data-image="imgs/wicked.jpg" data-time="6:30 PM">Buy Ticket</button>
+      </div>
+
+      <div class="movie-card">
+        <img src="imgs/sinners.jpg" alt="Sinners" />
+        <h3>Sinners</h3>
+        <p>Showtime: 8:00 PM</p>
+        <button class="buy-btn" data-title="Sinners" data-image="imgs/sinners.jpg" data-time="8:00 PM">Buy Ticket</button>
+      </div>
     </div>
 
     <div class="view-all">
@@ -38,7 +48,6 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-links">
       <a href="#">Now Showing</a>
