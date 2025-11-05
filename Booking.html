@@ -11,6 +11,7 @@
   />
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="logo">JMA <span>CINEMA</span></div>
     <nav>
@@ -25,17 +26,24 @@
     </nav>
   </header>
 
+  <!-- ===== PROGRESS BAR ===== -->
   <div class="progress-bar">
     <div class="step active">1. Select Tickets</div>
     <div class="step">2. Confirmation</div>
     <div class="step">3. Booking Successful</div>
   </div>
 
+  <!-- ===== MAIN BOOKING CONTAINER ===== -->
   <div class="booking-container">
     <!-- ========== SELECT TICKETS SECTION ========== -->
-    <div class="ticket-section">
+    <div class="ticket-section" id="ticketSection">
       <div class="movie-header">
-        <img id="moviePoster" src="imgs/default-poster.jpg" alt="Movie Poster" class="movie-poster" />
+        <img
+          id="moviePoster"
+          src="imgs/default-poster.jpg"
+          alt="Movie Poster"
+          class="movie-poster"
+        />
         <div class="movie-info">
           <h2 id="movieTitle">Movie Title</h2>
           <p id="movieCinema">Cinema: --</p>
@@ -80,11 +88,11 @@
         </div>
       </div>
 
-      <button class="next-btn">NEXT</button>
+      <button class="next-btn" id="nextBtn">NEXT</button>
     </div>
 
     <!-- ========== BASKET SECTION ========== -->
-    <aside class="basket">
+    <aside class="basket" id="basketSection">
       <h3>YOUR BASKET</h3>
       <div class="basket-header">
         <span id="basketTitle">--</span>
@@ -104,12 +112,13 @@
   </div>
 
   <!-- ========== CONFIRMATION SECTION ========== -->
-  <div class="confirmation-container" style="display: none; width: 90%; margin: 30px auto;">
+  <div class="confirmation-container" id="confirmationSection" style="display: none; width: 90%; margin: 30px auto;">
     <div class="confirmation-content">
       <!-- LEFT SIDE -->
       <div class="ticket-section">
         <h2 style="color:#e38007;">Confirmation</h2>
         <p>Thank you for booking with <strong>JMA Cinema</strong>!</p>
+
         <div class="confirm-details" style="margin-top:20px;">
           <h3>Movie Details</h3>
           <p><strong>Movie:</strong> <span id="confirmMovieTitle">--</span></p>
@@ -121,6 +130,7 @@
           <h3>Total:</h3>
           <p id="confirmTotalCost" style="font-size:18px; font-weight:bold;">₱0.00</p>
         </div>
+
         <button id="confirmBtn" class="confirm-Btn">Confirm Booking</button>
         <button id="backBtn" class="back-Btn">Back</button>
       </div>
@@ -129,6 +139,7 @@
       <div class="personal-details">
         <h2 style="color:#e38007;">Personal Details</h2>
         <p>Please provide your name and email address for booking confirmation.</p>
+
         <form id="personalForm">
           <label for="fullName"><strong>Full Name</strong></label>
           <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required />
@@ -142,6 +153,57 @@
     </div>
   </div>
 
+  <!-- ========== BOOKING SUCCESS SECTION ========== -->
+  <div class="success-container" id="successSection" style="display: none; width: 90%; margin: 30px auto;">
+    <div class="success-content">
+      <div class="success-icon">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h2>THANK YOU FOR PURCHASING, <span id="displayName">NAME</span>!</h2>
+
+      <div class="success-card">
+        <div class="movie-summary">
+          <strong id="successMovieTitle">--</strong><br />
+          <span id="successShowtime">Showtime: --</span><br />
+          <span id="successCinema">Cinema: --</span>
+        </div>
+
+        <table class="ticket-summary">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Cost</th>
+              <th>Qty</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="successTicketList"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" style="text-align:right;">Booking Fee</td>
+              <td id="successBookingFee">₱30.00</td>
+            </tr>
+            <tr>
+              <td colspan="3" style="text-align:right;font-weight:bold;">Total</td>
+              <td id="successTotal" style="font-weight:bold;">₱0.00</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="other-details">
+          <h3>Other Details</h3>
+          <p>
+            The receipt has been sent to your email:
+            <span id="displayEmail">example@gmail.com</span>
+          </p>
+        </div>
+      </div>
+
+      <a href="Home.html" class="home-btn">Return to Home</a>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-links">
       <a href="Home.html">Home</a>
