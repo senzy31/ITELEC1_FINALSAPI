@@ -80,12 +80,6 @@
         </div>
       </div>
 
-      <div class="login-section">
-        <p>Enter Email for the receipt</p>
-        <label>Email</label>
-        <input type="email" placeholder="Enter your email" />
-      </div>
-
       <button class="next-btn">NEXT</button>
     </div>
 
@@ -109,25 +103,42 @@
     </aside>
   </div>
 
-  <!-- ========== CONFIRMATION SECTION (hidden by default) ========== -->
+  <!-- ========== CONFIRMATION SECTION ========== -->
   <div class="confirmation-container" style="display: none; width: 90%; margin: 30px auto;">
-    <div class="ticket-section">
+    <div class="confirmation-content">
+      <!-- LEFT SIDE -->
+      <div class="ticket-section">
+        <h2 style="color:#e38007;">Confirmation</h2>
+        <p>Thank you for booking with <strong>JMA Cinema</strong>!</p>
+        <div class="confirm-details" style="margin-top:20px;">
+          <h3>Movie Details</h3>
+          <p><strong>Movie:</strong> <span id="confirmMovieTitle">--</span></p>
+          <p><strong>Showtime:</strong> <span id="confirmShowtime">--</span></p>
 
-      <h2 style="color:#e38007;">Confirmation</h2>
-      <p>Thank you for booking with <strong>JMA Cinema</strong>!</p>
-      <div class="confirm-details" style="margin-top:20px;">
-        <h3>Movie Details</h3>
-        <p><strong>Movie:</strong> <span id="confirmMovieTitle">--</span></p>
-        <p><strong>Showtime:</strong> <span id="confirmShowtime">--</span></p>
+          <h3>Tickets</h3>
+          <div id="confirmTicketList" style="margin-bottom:10px;"></div>
 
-        <h3>Tickets</h3>
-        <div id="confirmTicketList" style="margin-bottom:10px;"></div>
-
-        <h3>Total:</h3>
-        <p id="confirmTotalCost" style="font-size:18px; font-weight:bold;">₱0.00</p>
+          <h3>Total:</h3>
+          <p id="confirmTotalCost" style="font-size:18px; font-weight:bold;">₱0.00</p>
+        </div>
+        <button id="confirmBtn" class="confirm-Btn">Confirm Booking</button>
+        <button id="backBtn" class="back-Btn">Back</button>
       </div>
-      <button id="confirmBtn" class="confirm-Btn">Confirm Booking</button>
-      <button id="backBtn" class="back-Btn">Back</button>
+
+      <!-- RIGHT SIDE -->
+      <div class="personal-details">
+        <h2 style="color:#e38007;">Personal Details</h2>
+        <p>Please provide your name and email address for booking confirmation.</p>
+        <form id="personalForm">
+          <label for="fullName"><strong>Full Name</strong></label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required />
+
+          <label for="email"><strong>Email Address</strong></label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+          <p class="note">*Your booking confirmation will be sent to this email.</p>
+        </form>
+      </div>
     </div>
   </div>
 
