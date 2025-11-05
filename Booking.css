@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "SF pro", sans-serif;
   margin: 0;
   background: #fff5f5;
   color: #111;
@@ -171,6 +171,53 @@ nav ul li a:hover {
 .qty-controls span.qty {
   width: 25px;
   text-align: center;
+}
+
+.next-btn {
+  background: #e38007;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: auto;
+  display: block;
+}
+
+.back-Btn {
+  background: #79756f;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-right: 10px;
+  display: block;
+}
+
+.confirm-Btn {
+  background: #e38007;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-right: 10px;
+  display: block;
+}
+
+.confirm-Btn:hover {
+  background: #cf6e00;
+}
+
+.back-Btn:hover {
+  background: #cf6e00;
+}
+.next-btn:hover {
+  background: #cf6e00;
 }
 
 /* Login Section */

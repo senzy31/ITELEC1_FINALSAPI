@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Booking | JMA Cinema</title>
-  <link rel="stylesheet" href="Booking.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="Booking.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  />
 </head>
 <body>
   <header>
@@ -24,24 +27,27 @@
 
   <div class="progress-bar">
     <div class="step active">1. Select Tickets</div>
+    <div class="step">2. Confirmation</div>
+    <div class="step">3. Booking Successful</div>
   </div>
 
   <div class="booking-container">
+    <!-- ========== SELECT TICKETS SECTION ========== -->
     <div class="ticket-section">
       <div class="movie-header">
-        <img id="moviePoster" src="imgs/default-poster.jpg" alt="Movie Poster" class="movie-poster">
+        <img id="moviePoster" src="imgs/default-poster.jpg" alt="Movie Poster" class="movie-poster" />
         <div class="movie-info">
           <h2 id="movieTitle">Movie Title</h2>
-          <p id="movieCinema">Cinema: --</p> <!-- ✅ Added -->
+          <p id="movieCinema">Cinema: --</p>
           <p id="movieTime">Showtime: --</p>
-          <p class="warning">*Please ensure that you are selecting seats for the correct branch of your choice</p>
+          <p class="warning">
+            *Please ensure that you are selecting seats for the correct branch of your choice
+          </p>
         </div>
       </div>
 
       <h3>SELECT TICKETS</h3>
-      <p>
-        Select the number and type of tickets you wish to buy.
-      </p>
+      <p>Select the number and type of tickets you wish to buy.</p>
 
       <div class="ticket-table">
         <div class="ticket-row header">
@@ -75,29 +81,54 @@
       </div>
 
       <div class="login-section">
-        <p>Enter Email for the reciept</p>
+        <p>Enter Email for the receipt</p>
         <label>Email</label>
-        <input type="email" placeholder="Enter your email">
+        <input type="email" placeholder="Enter your email" />
       </div>
+
+      <button class="next-btn">NEXT</button>
     </div>
 
+    <!-- ========== BASKET SECTION ========== -->
     <aside class="basket">
-  <h3>YOUR BASKET</h3>
-  <div class="basket-header">
-    <span id="basketTitle">--</span>
+      <h3>YOUR BASKET</h3>
+      <div class="basket-header">
+        <span id="basketTitle">--</span>
+      </div>
+
+      <div id="basketList" class="basket-list">
+        <p style="color: gray;">No tickets selected yet.</p>
+      </div>
+
+      <hr />
+
+      <div class="total">
+        <p>Total Cost</p>
+        <h2 id="totalCost">₱0.00</h2>
+      </div>
+    </aside>
   </div>
 
-  <!-- 👇 this will show all selected tickets dynamically -->
-  <div id="basketList" class="basket-list"></div>
+  <!-- ========== CONFIRMATION SECTION (hidden by default) ========== -->
+  <div class="confirmation-container" style="display: none; width: 90%; margin: 30px auto;">
+    <div class="ticket-section">
 
-  <hr />
+      <h2 style="color:#e38007;">Confirmation</h2>
+      <p>Thank you for booking with <strong>JMA Cinema</strong>!</p>
+      <div class="confirm-details" style="margin-top:20px;">
+        <h3>Movie Details</h3>
+        <p><strong>Movie:</strong> <span id="confirmMovieTitle">--</span></p>
+        <p><strong>Showtime:</strong> <span id="confirmShowtime">--</span></p>
 
-  <div class="total">
-    <p>Total Cost</p>
-    <h2 id="totalCost">₱0.00</h2>
-  </div>
-</aside>
+        <h3>Tickets</h3>
+        <div id="confirmTicketList" style="margin-bottom:10px;"></div>
 
+        <h3>Total:</h3>
+        <p id="confirmTotalCost" style="font-size:18px; font-weight:bold;">₱0.00</p>
+      </div>
+      <button id="confirmBtn" class="confirm-Btn">Confirm Booking</button>
+      <button id="backBtn" class="back-Btn">Back</button>
+    </div>
   </div>
 
   <footer>
